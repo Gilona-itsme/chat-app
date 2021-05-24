@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Gilona-itsme/chat-app.git/precache-manifest.5dbc0e08e4230e18a661d563e0daeadd.js"
+  "/chat-app/precache-manifest.250eb1bb189a88fd38bdaaa1e94cb904.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Gilona-itsme/chat-app.git/index.html", {
+workbox.routing.registerNavigationRoute("/chat-app/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
