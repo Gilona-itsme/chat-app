@@ -14,51 +14,52 @@ class Chat extends Component {
 		messages: [],
 	};
 
-	// componentDidMount() {
-	//   this.socket.on('message', msg => {
-	//     if (this.state.isLogin) {
-	//       this.setState(({ messages }) => {
-	//         const newMessages = [...messages];
-	//         if (newMessages.length > 10) {
-	//           newMessages.shift();
-	//         }
-	//         return {
-	//           messages: [...newMessages, { user: msg.user, text: msg.message }],
-	//         };
-	//       });
-	//     }
-	//   });
-	//   this.socket.on('users', users => {
-	//     this.setState({ users });
-	//   });
-	// }
+	componentDidMount() {
+		this.socket.on("message", (msg) => {
+			if (this.state.isLogin) {
+				this.setState(({ messages }) => {
+					const newMessages = [...messages];
+					if (newMessages.length > 10) {
+						newMessages.shift();
+					}
+					return {
+						messages: [...newMessages, { user: msg.user, text: msg.message }],
+					};
+				});
+			}
+		});
+		this.socket.on("users", (users) => {
+			this.setState({ users });
+		});
+	}
 
-	// changeMessage = event => {
-	//   this.setState({ message: event.target.value });
-	// };
+	changeMessage = (event) => {
+		this.setState({ message: event.target.value });
+	};
 
-	// changeName = event => {
-	//   this.setState({ currentUser: event.target.value });
-	// };
+	changeName = (event) => {
+		this.setState({ currentUser: event.target.value });
+	};
 
-	// inputName = () => {
-	//   const user = this.state.currentUser;
-	//   if (user !== '') {
-	//     this.setState({ isLogin: true });
-	//     this.socket.emit('change:name', user);
-	//   }
-	// };
-	// sendMessage = event => {
-	//   event.preventDefault();
-	//   const { currentUser, message } = this.state;
-	//   if (message.trim().length) {
-	//     this.socket.emit('message', {
-	//       user: currentUser,
-	//       message: message.trim(),
-	//     });
-	//     this.setState({ message: '' });
-	//   }
-	// };
+	inputName = () => {
+		const user = this.state.currentUser;
+		if (user !== "") {
+			this.setState({ isLogin: true });
+			this.socket.emit("change:name", user);
+		}
+	};
+
+	sendMessage = (event) => {
+		event.preventDefault();
+		const { currentUser, message } = this.state;
+		if (message.trim().length) {
+			this.socket.emit("message", {
+				user: currentUser,
+				message: message.trim(),
+			});
+			this.setState({ message: "" });
+		}
+	};
 	render() {
 		const { isLogin, currentUser, message, messages, users } = this.state;
 		if (!isLogin) {

@@ -23,7 +23,7 @@ io.on('connection', client => {
     broadcast('message', message);
   });
   client.on('disconnect', () => {
-    delete users(client.id);
+    delete users[client.id];
     broadcast('users', users);
   });
 

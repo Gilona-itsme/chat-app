@@ -17,7 +17,9 @@
 		"start": "react-scripts start",
 		"build": "cross-env REACT_APP_URL=https://hil-app-chat.herokuapp.com/ react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
 	},
 	"eslintConfig": {
 		"extends": [
