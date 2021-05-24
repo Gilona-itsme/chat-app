@@ -1,0 +1,47 @@
+.chat-box {
+  max-width: 800px;
+  margin: 50px auto 20px;
+
+  @media screen and (min-width: 800px) {
+    max-width: 100%;
+  }
+}
+.chat-box__modal {
+  box-shadow: 0px 0px 8px 8px rgba(34, 60, 80, 0.37);
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2s ease;
+}
+
+.chat-box__modal.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.chat-box__messages {
+  height: 200px;
+  background-color: rgb(224, 213, 230);
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+textarea.chat-box__input {
+  height: 100px;
+  max-width: 750px;
+  width: 100%;
+  margin: 25px;
+  padding: 0;
+}
+/* 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+} */

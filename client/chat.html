@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./chat.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a class="chat__link" data-modal-open href="">CHAT</a>
+    <main class="chat-box overlay">
+      <div class="container chat-box__modal">
+        <ul class="chat-box__messages"></ul>
+       
+      </div>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+  </body>
+</html>
